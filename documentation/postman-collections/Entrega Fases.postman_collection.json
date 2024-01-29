@@ -1,0 +1,1127 @@
+{
+	"info": {
+		"_postman_id": "44c95624-d08e-442b-9558-002036efefd8",
+		"name": "Entrega Fase 1, 2, 3 e 4",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16179794"
+	},
+	"item": [
+		{
+			"name": "1 - Identificação Cliente",
+			"item": [
+				{
+					"name": "/login",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseJson = pm.response.json();",
+									"const statusCode = pm.response.code;",
+									"",
+									"pm.test(\"Expected OAuth Token Response\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    pm.expect(responseJson.access_token).to.be.not.null;",
+									"});",
+									"",
+									"if(statusCode == 200){",
+									"    pm.environment.set(\"access_token\", responseJson[\"access_token\"])",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-anonymous-user",
+								"value": "false",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"12585824659\",\n    \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway}}/login",
+							"host": [
+								"{{gateway}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/totem/customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Jefferson\",\n    \"email\": \"jef.cleyson@gmail.com\",\n    \"cpf\": \"12585824659\",\n    \"mobile\": \"35999089866\",\n    \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{customerServiceAddr}}/v1/totem/customer",
+							"host": [
+								"{{customerServiceAddr}}"
+							],
+							"path": [
+								"v1",
+								"totem",
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/totem/customer/:customerId/code/:code",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{customerServiceAddr}}/v1/totem/customer/:customerId/code/:code",
+							"host": [
+								"{{customerServiceAddr}}"
+							],
+							"path": [
+								"v1",
+								"totem",
+								"customer",
+								":customerId",
+								"code",
+								":code"
+							],
+							"variable": [
+								{
+									"key": "customerId",
+									"value": "12585824659"
+								},
+								{
+									"key": "code",
+									"value": "302772"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/totem/customer/:customerId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "cpf",
+								"value": "12585824659",
+								"type": "text"
+							},
+							{
+								"key": "password",
+								"value": "123456",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{customerServiceAddr}}/v1/totem/customer/:customerId",
+							"host": [
+								"{{customerServiceAddr}}"
+							],
+							"path": [
+								"v1",
+								"totem",
+								"customer",
+								":customerId"
+							],
+							"variable": [
+								{
+									"key": "customerId",
+									"value": "64a1f7a5ed3da311b18b0b62"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "2 - Categoria",
+			"item": [
+				{
+					"name": "/administrative/category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Sobremesa\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{orderServiceAddr}}/v1/administrative/category",
+							"host": [
+								"{{orderServiceAddr}}"
+							],
+							"path": [
+								"v1",
+								"administrative",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/administrative/category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{orderServiceAddr}}/v1/administrative/category",
+							"host": [
+								"{{orderServiceAddr}}"
+							],
+							"path": [
+								"v1",
+								"administrative",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/administrative/category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Bebida\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{orderServiceAddr}}/v1/administrative/category/:categoryId",
+							"host": [
+								"{{orderServiceAddr}}"
+							],
+							"path": [
+								"v1",
+								"administrative",
+								"category",
+								":categoryId"
+							],
+							"variable": [
+								{
+									"key": "categoryId",
+									"value": "65ab214a0e00ab12859a5c67"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/administrative/category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{orderServiceAddr}}/v1/administrative/category/:categoryId",
+							"host": [
+								"{{orderServiceAddr}}"
+							],
+							"path": [
+								"v1",
+								"administrative",
+								"category",
+								":categoryId"
+							],
+							"variable": [
+								{
+									"key": "categoryId",
+									"value": "6523063202eb7b77ad4d2ec6"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "3 - Produto",
+			"item": [
+				{
+					"name": "/administrative/product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Sunday\",\n    \"description\": \"Chocolate\",\n    \"image\": \"https://s2.glbimg.com/x4W3eb8dGwiiv6MEzxk6qMeukSs=/smart/e.glbimg.com/og/ed/f/original/2021/05/28/receitas-para-acompanhar-batata-frita.jpg\",\n    \"price\": 15,\n    \"category\": \"65b66584851f2f383393c7ae\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{orderServiceAddr}}/v1/administrative/product",
+							"host": [
+								"{{orderServiceAddr}}"
+							],
+							"path": [
+								"v1",
+								"administrative",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/administrative/product/:productId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Sunday 2\",\n    \"description\": \"Chocolate\",\n    \"image\": \"https://s2.glbimg.com/x4W3eb8dGwiiv6MEzxk6qMeukSs=/smart/e.glbimg.com/og/ed/f/original/2021/05/28/receitas-para-acompanhar-batata-frita.jpg\",\n    \"price\": 15,\n    \"category\": \"65ab214a0e00ab12859a5c67\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{orderServiceAddr}}/v1/administrative/product/:productId",
+							"host": [
+								"{{orderServiceAddr}}"
+							],
+							"path": [
+								"v1",
+								"administrative",
+								"product",
+								":productId"
+							],
+							"variable": [
+								{
+									"key": "productId",
+									"value": "65ab216c0e00ab12859a5c68"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/administrative/product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{orderServiceAddr}}/v1/administrative/product",
+							"host": [
+								"{{orderServiceAddr}}"
+							],
+							"path": [
+								"v1",
+								"administrative",
+								"product"
+							],
+							"query": [
+								{
+									"key": "categoryId",
+									"value": "6544383ce3b6055d9fd06c15",
+									"disabled": true
+								},
+								{
+									"key": "categoryId",
+									"value": "649f658d93ecc62de1ffa264",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/administrative/product/:productId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{gateway}}/v1/administrative/product/:productId",
+							"host": [
+								"{{gateway}}"
+							],
+							"path": [
+								"v1",
+								"administrative",
+								"product",
+								":productId"
+							],
+							"variable": [
+								{
+									"key": "productId",
+									"value": "65442bf47d5c157756e7adee"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "4 - Pedidos",
+			"item": [
+				{
+					"name": "/totem/order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-user-identifier",
+								"value": "12585824659",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"products\": [\n        {\n            \"id\": \"65b66594851f2f383393c7af\",\n            \"qtd\": 1\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{orderServiceAddr}}/v1/totem/order",
+							"host": [
+								"{{orderServiceAddr}}"
+							],
+							"path": [
+								"v1",
+								"totem",
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/totem/order/:orderId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-user-identifier",
+								"value": "12585824659",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"products\": [\n        {\n            \"id\": \"65ab216c0e00ab12859a5c68\",\n            \"qtd\": 1\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{orderServiceAddr}}/v1/totem/order/:orderId",
+							"host": [
+								"{{orderServiceAddr}}"
+							],
+							"path": [
+								"v1",
+								"totem",
+								"order",
+								":orderId"
+							],
+							"variable": [
+								{
+									"key": "orderId",
+									"value": "65b1c2ae1bdc7646b70ceade"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/totem/order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-user-identifier",
+								"value": "12585824659",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{orderServiceAddr}}/v1/totem/order?status=WAITING_PAYMENT&status=RECEIVED&status=FINALIZED",
+							"host": [
+								"{{orderServiceAddr}}"
+							],
+							"path": [
+								"v1",
+								"totem",
+								"order"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "12585824659",
+									"disabled": true
+								},
+								{
+									"key": "orderId",
+									"value": "654444bfbfcc5f7a6a1402dc",
+									"disabled": true
+								},
+								{
+									"key": "onlyTreadmill",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "NEW",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "WAITING_PAYMENT"
+								},
+								{
+									"key": "status",
+									"value": "RECEIVED"
+								},
+								{
+									"key": "status",
+									"value": "IN_PREPARATION",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "READY",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "FINALIZED"
+								},
+								{
+									"key": "status",
+									"value": "CANCELED",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/totem/order/:id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-user-identifier",
+								"value": "12585824659",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{orderServiceAddr}}/v1/totem/order/:id",
+							"host": [
+								"{{orderServiceAddr}}"
+							],
+							"path": [
+								"v1",
+								"totem",
+								"order",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "65b045575496c314d05b7002"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/totem/order/:orderId/status/:statusName",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-user-identifier",
+								"value": "12585824659",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{orderServiceAddr}}/v1/totem/order/:orderId/status/:statusName",
+							"host": [
+								"{{orderServiceAddr}}"
+							],
+							"path": [
+								"v1",
+								"totem",
+								"order",
+								":orderId",
+								"status",
+								":statusName"
+							],
+							"variable": [
+								{
+									"key": "orderId",
+									"value": "65b5d9aebcbc9933a35ed8a0"
+								},
+								{
+									"key": "statusName",
+									"value": "WAITING_PAYMENT",
+									"description": "NEW, WAITING_PAYMENT, RECEIVED, IN_PREPARATION, READY, FINALIZED, CANCELED"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "5 - Pagamento",
+			"item": [
+				{
+					"name": "/totem/payment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-user-identifier",
+								"value": "12585824659",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"orderId\": \"65b5b4baf499e739b0927e9f\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{paymentServiceAddr}}/v1/totem/payment",
+							"host": [
+								"{{paymentServiceAddr}}"
+							],
+							"path": [
+								"v1",
+								"totem",
+								"payment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/totem/payment/:paymentId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-with-image-qrcode",
+								"value": "false",
+								"type": "text"
+							},
+							{
+								"key": "x-user-identifier",
+								"value": "12585824659",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{paymentServiceAddr}}/v1/totem/payment/:paymentId",
+							"host": [
+								"{{paymentServiceAddr}}"
+							],
+							"path": [
+								"v1",
+								"totem",
+								"payment",
+								":paymentId"
+							],
+							"variable": [
+								{
+									"key": "paymentId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/totem/payment/callback/order/:orderId",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "8589b28f-ae66-44ff-8701-b5b3f19d0a58",
+								"type": "text"
+							},
+							{
+								"key": "x-user-identifier",
+								"value": "12585824659",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{paymentServiceAddr}}/v1/totem/payment/callback",
+							"host": [
+								"{{paymentServiceAddr}}"
+							],
+							"path": [
+								"v1",
+								"totem",
+								"payment",
+								"callback"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "6 - Acompanhamento",
+			"item": [
+				{
+					"name": "/totem/order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-user-identifier",
+								"value": "12585824659",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{orderServiceAddr}}/v1/totem/order?orderId=65b66599851f2f383393c7b0&status=NEWs",
+							"host": [
+								"{{orderServiceAddr}}"
+							],
+							"path": [
+								"v1",
+								"totem",
+								"order"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "12585824659",
+									"disabled": true
+								},
+								{
+									"key": "orderId",
+									"value": "65b66599851f2f383393c7b0"
+								},
+								{
+									"key": "status",
+									"value": "RECEIVED",
+									"description": "NEW, WAITING_PAYMENT, RECEIVED, IN_PREPARATION, READY, FINALIZED, CANCELED",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "WAITING_PAYMENT",
+									"description": "NEW, WAITING_PAYMENT, RECEIVED, IN_PREPARATION, READY, FINALIZED, CANCELED",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "NEWs"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "7 - Gerenciar Clientes",
+			"item": [
+				{
+					"name": "/administrative/customer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{customerServiceAddr}}/v1/administrative/customer",
+							"host": [
+								"{{customerServiceAddr}}"
+							],
+							"path": [
+								"v1",
+								"administrative",
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/totem/customer/:customerId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{customerServiceAddr}}/v1/totem/customer/12585824659",
+							"host": [
+								"{{customerServiceAddr}}"
+							],
+							"path": [
+								"v1",
+								"totem",
+								"customer",
+								"12585824659"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "8 - Gerenciar Pedidos",
+			"item": [
+				{
+					"name": "/administrative/orders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{orderServiceAddr}}/v1/administrative/orders",
+							"host": [
+								"{{orderServiceAddr}}"
+							],
+							"path": [
+								"v1",
+								"administrative",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "RECEIVED",
+									"description": "NEW, WAITING_PAYMENT, RECEIVED, IN_PREPARATION, READY, FINALIZED, CANCELED",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "WAITING_PAYMENT",
+									"description": "NEW, WAITING_PAYMENT, RECEIVED, IN_PREPARATION, READY, FINALIZED, CANCELED",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "FINALIZED",
+									"description": "NEW, WAITING_PAYMENT, RECEIVED, IN_PREPARATION, READY, FINALIZED, CANCELED",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "access_token",
+			"value": ""
+		}
+	]
+}
