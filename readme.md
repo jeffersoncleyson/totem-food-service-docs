@@ -73,6 +73,8 @@ Instrução para uso da aplicação se encontra no tópico [Executando a Aplica�
 - [Swagger da Aplicação](#swagger-da-aplicação)
   - [Swagger Totem](#swagger-totem)
 - [Visão Geral da Aplicação](#visão-geral-da-aplicação)
+- [Visão De Arquitetura](#visão-de-arquitetura)
+- [Visão do Padrão Saga](#visão-do-padrão-saga)
 - [Máquinas de Estado](#máquinas-de-estado)
 - [Jornada dos Atores](#jornada-dos-atores)
 - [Ambiente para desenvolvimento Docker Compose](#ambiente-para-desenvolvimento-docker-compose)
@@ -131,6 +133,18 @@ após copiar cole no site do [swagger editor](https://editor.swagger.io/).
 Visão global da aplicação em funcionamento
 
 ![Swagger](./documentation/diagrams/GeneralVision.png)
+
+---
+
+## Visão De Arquitetura
+
+Visão da arquitetura na AWS Cloud
+
+![AWS](./documentation/diagrams/aws_diagram.png)
+
+## Visão do Padrão Saga
+
+![AWS](./documentation/diagrams/Fase5-animacaoDiagrama.gif)
 
 ---
 
