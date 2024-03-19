@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "44c95624-d08e-442b-9558-002036efefd8",
-		"name": "Entrega Fase 1, 2, 3 e 4",
+		"name": "Entrega Fase 1, 2, 3, 4 e 5",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "16179794"
 	},
@@ -127,7 +127,7 @@
 								},
 								{
 									"key": "code",
-									"value": "302772"
+									"value": "001264"
 								}
 							]
 						}
@@ -203,7 +203,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Sobremesa\"\n}",
+							"raw": "{\n    \"name\": \"Lanche\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -270,7 +270,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Bebida\"\n}",
+							"raw": "{\n    \"name\": \"Sobremesas\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -291,7 +291,7 @@
 							"variable": [
 								{
 									"key": "categoryId",
-									"value": "65ab214a0e00ab12859a5c67"
+									"value": "65f2553e5a8d773f94ba9fc4"
 								}
 							]
 						}
@@ -327,7 +327,7 @@
 							"variable": [
 								{
 									"key": "categoryId",
-									"value": "6523063202eb7b77ad4d2ec6"
+									"value": "65f2564d5a8d773f94ba9fc8"
 								}
 							]
 						}
@@ -356,7 +356,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Sunday\",\n    \"description\": \"Chocolate\",\n    \"image\": \"https://s2.glbimg.com/x4W3eb8dGwiiv6MEzxk6qMeukSs=/smart/e.glbimg.com/og/ed/f/original/2021/05/28/receitas-para-acompanhar-batata-frita.jpg\",\n    \"price\": 15,\n    \"category\": \"65b66584851f2f383393c7ae\"\n}",
+							"raw": "{\n    \"name\": \"Sorvete\",\n    \"description\": \"Chocolate\",\n    \"image\": \"https://s2.glbimg.com/x4W3eb8dGwiiv6MEzxk6qMeukSs=/smart/e.glbimg.com/og/ed/f/original/2021/05/28/receitas-para-acompanhar-batata-frita.jpg\",\n    \"price\": 10,\n    \"category\": \"65f2553e5a8d773f94ba9fc4\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -394,7 +394,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Sunday 2\",\n    \"description\": \"Chocolate\",\n    \"image\": \"https://s2.glbimg.com/x4W3eb8dGwiiv6MEzxk6qMeukSs=/smart/e.glbimg.com/og/ed/f/original/2021/05/28/receitas-para-acompanhar-batata-frita.jpg\",\n    \"price\": 15,\n    \"category\": \"65ab214a0e00ab12859a5c67\"\n}",
+							"raw": "{\n    \"name\": \"Sundays 2\",\n    \"description\": \"Chocolate\",\n    \"image\": \"https://s2.glbimg.com/x4W3eb8dGwiiv6MEzxk6qMeukSs=/smart/e.glbimg.com/og/ed/f/original/2021/05/28/receitas-para-acompanhar-batata-frita.jpg\",\n    \"price\": 15,\n    \"category\": \"65f2553e5a8d773f94ba9fc4\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -415,7 +415,7 @@
 							"variable": [
 								{
 									"key": "productId",
-									"value": "65ab216c0e00ab12859a5c68"
+									"value": "65f255b65a8d773f94ba9fc6"
 								}
 							]
 						}
@@ -450,7 +450,7 @@
 							"query": [
 								{
 									"key": "categoryId",
-									"value": "6544383ce3b6055d9fd06c15",
+									"value": "65f253695a8d773f94ba9fc0",
 									"disabled": true
 								},
 								{
@@ -492,7 +492,7 @@
 							"variable": [
 								{
 									"key": "productId",
-									"value": "65442bf47d5c157756e7adee"
+									"value": "65f256745a8d773f94ba9fc9"
 								}
 							]
 						}
@@ -522,12 +522,13 @@
 							{
 								"key": "x-user-identifier",
 								"value": "12585824659",
-								"type": "text"
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"products\": [\n        {\n            \"id\": \"65b66594851f2f383393c7af\",\n            \"qtd\": 1\n        }\n    ]\n}",
+							"raw": "{\n    \"products\": [\n        {\n            \"id\": \"65f255b65a8d773f94ba9fc6\",\n            \"qtd\": 1\n        }\n    ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -566,12 +567,13 @@
 							{
 								"key": "x-user-identifier",
 								"value": "12585824659",
-								"type": "text"
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"products\": [\n        {\n            \"id\": \"65ab216c0e00ab12859a5c68\",\n            \"qtd\": 1\n        }\n    ]\n}",
+							"raw": "{\n    \"products\": [\n        {\n            \"id\": \"65f255b65a8d773f94ba9fc6\",\n            \"qtd\": 2\n        }\n    ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -592,7 +594,7 @@
 							"variable": [
 								{
 									"key": "orderId",
-									"value": "65b1c2ae1bdc7646b70ceade"
+									"value": "65f255e05a8d773f94ba9fc7"
 								}
 							]
 						}
@@ -617,7 +619,8 @@
 							{
 								"key": "x-user-identifier",
 								"value": "12585824659",
-								"type": "text"
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"url": {
@@ -701,7 +704,8 @@
 							{
 								"key": "x-user-identifier",
 								"value": "12585824659",
-								"type": "text"
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"url": {
@@ -718,7 +722,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "65b045575496c314d05b7002"
+									"value": "65f255e05a8d773f94ba9fc7"
 								}
 							]
 						}
@@ -743,7 +747,8 @@
 							{
 								"key": "x-user-identifier",
 								"value": "12585824659",
-								"type": "text"
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"url": {
@@ -762,11 +767,11 @@
 							"variable": [
 								{
 									"key": "orderId",
-									"value": "65b5d9aebcbc9933a35ed8a0"
+									"value": "65f255e05a8d773f94ba9fc7"
 								},
 								{
 									"key": "statusName",
-									"value": "WAITING_PAYMENT",
+									"value": "NEW",
 									"description": "NEW, WAITING_PAYMENT, RECEIVED, IN_PREPARATION, READY, FINALIZED, CANCELED"
 								}
 							]
@@ -779,50 +784,6 @@
 		{
 			"name": "5 - Pagamento",
 			"item": [
-				{
-					"name": "/totem/payment",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "x-user-identifier",
-								"value": "12585824659",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"orderId\": \"65b5b4baf499e739b0927e9f\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{paymentServiceAddr}}/v1/totem/payment",
-							"host": [
-								"{{paymentServiceAddr}}"
-							],
-							"path": [
-								"v1",
-								"totem",
-								"payment"
-							]
-						}
-					},
-					"response": []
-				},
 				{
 					"name": "/totem/payment/:paymentId",
 					"request": {
@@ -846,11 +807,12 @@
 							{
 								"key": "x-user-identifier",
 								"value": "12585824659",
-								"type": "text"
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"url": {
-							"raw": "{{paymentServiceAddr}}/v1/totem/payment/:paymentId",
+							"raw": "{{paymentServiceAddr}}/v1/totem/payment/order/:orderId",
 							"host": [
 								"{{paymentServiceAddr}}"
 							],
@@ -858,12 +820,13 @@
 								"v1",
 								"totem",
 								"payment",
-								":paymentId"
+								"order",
+								":orderId"
 							],
 							"variable": [
 								{
-									"key": "paymentId",
-									"value": "1"
+									"key": "orderId",
+									"value": "65ee6c446a8b9472ccf40515"
 								}
 							]
 						}
@@ -883,7 +846,8 @@
 							{
 								"key": "x-user-identifier",
 								"value": "12585824659",
-								"type": "text"
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"body": {
@@ -933,11 +897,12 @@
 							{
 								"key": "x-user-identifier",
 								"value": "12585824659",
-								"type": "text"
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"url": {
-							"raw": "{{orderServiceAddr}}/v1/totem/order?orderId=65b66599851f2f383393c7b0&status=NEWs",
+							"raw": "{{orderServiceAddr}}/v1/totem/order?status=NEW",
 							"host": [
 								"{{orderServiceAddr}}"
 							],
@@ -954,7 +919,8 @@
 								},
 								{
 									"key": "orderId",
-									"value": "65b66599851f2f383393c7b0"
+									"value": "65ee6c446a8b9472ccf40515",
+									"disabled": true
 								},
 								{
 									"key": "status",
@@ -970,7 +936,7 @@
 								},
 								{
 									"key": "status",
-									"value": "NEWs"
+									"value": "NEW"
 								}
 							]
 						}
@@ -1062,7 +1028,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{orderServiceAddr}}/v1/administrative/orders",
+							"raw": "{{orderServiceAddr}}/v1/administrative/orders?status=NEW",
 							"host": [
 								"{{orderServiceAddr}}"
 							],
@@ -1074,9 +1040,8 @@
 							"query": [
 								{
 									"key": "status",
-									"value": "RECEIVED",
-									"description": "NEW, WAITING_PAYMENT, RECEIVED, IN_PREPARATION, READY, FINALIZED, CANCELED",
-									"disabled": true
+									"value": "NEW",
+									"description": "NEW, WAITING_PAYMENT, RECEIVED, IN_PREPARATION, READY, FINALIZED, CANCELED"
 								},
 								{
 									"key": "status",

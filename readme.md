@@ -28,6 +28,14 @@
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=fiap-tech-challenge-4787bf24ba181ac258cb520837a657896a92044c_totem-food-order-service&metric=bugs)](https://sonarcloud.io/summary/new_code?id=fiap-tech-challenge-4787bf24ba181ac258cb520837a657896a92044c_totem-food-order-service)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=fiap-tech-challenge-4787bf24ba181ac258cb520837a657896a92044c_totem-food-order-service&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=fiap-tech-challenge-4787bf24ba181ac258cb520837a657896a92044c_totem-food-order-service)
 
+### Totem Food Email Service
+
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-orange.svg)](https://sonarcloud.io/summary/new_code?id=fiap-tech-challenge-4787bf24ba181ac258cb520837a657896a92044c_totem-food-email-service)
+
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=fiap-tech-challenge-4787bf24ba181ac258cb520837a657896a92044c_totem-food-email-service&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=fiap-tech-challenge-4787bf24ba181ac258cb520837a657896a92044c_totem-food-email-service)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=fiap-tech-challenge-4787bf24ba181ac258cb520837a657896a92044c_totem-food-email-service&metric=coverage)](https://sonarcloud.io/summary/new_code?id=fiap-tech-challenge-4787bf24ba181ac258cb520837a657896a92044c_totem-food-email-service)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=fiap-tech-challenge-4787bf24ba181ac258cb520837a657896a92044c_totem-food-email-service&metric=bugs)](https://sonarcloud.io/summary/new_code?id=fiap-tech-challenge-4787bf24ba181ac258cb520837a657896a92044c_totem-food-email-service)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=fiap-tech-challenge-4787bf24ba181ac258cb520837a657896a92044c_totem-food-email-service&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=fiap-tech-challenge-4787bf24ba181ac258cb520837a657896a92044c_totem-food-email-service)
 
 ---
 
@@ -47,7 +55,7 @@
 - [totem-food-service-helm-chart](https://github.com/jeffersoncleyson/totem-food-service-helm-chart)
 - [totem-food-service-tf-module-components](https://github.com/jeffersoncleyson/totem-food-service-tf-module-components)
 - [totem-food-service-tf-module-rds](https://github.com/jeffersoncleyson/totem-food-service-tf-module-rds)
-
+- [totem-food-service-tf-module-sns-and-sqs](https://github.com/jeffersoncleyson/totem-food-service-tf-module-sns-and-sqs)
 
 ## Indice
 
@@ -57,8 +65,10 @@ Instrução para uso da aplicação se encontra no tópico [Executando a Aplica�
   - [Totem Food Payment Service](#totem-food-payment-service)
   - [Totem Food Customer Service](#totem-food-customer-service)
   - [Totem Food Order Service](#totem-food-order-service)
+  - [Totem Food Email Service](#totem-food-email-service)
 - [Repositórios](#repositórios)
 - [Indice](#indice)
+- [OWASP Reports](#owasp-reports)
 - [Postman da Aplicação](#postman-da-aplicação)
 - [Swagger da Aplicação](#swagger-da-aplicação)
   - [Swagger Totem](#swagger-totem)
@@ -68,6 +78,7 @@ Instrução para uso da aplicação se encontra no tópico [Executando a Aplica�
 - [Ambiente para desenvolvimento Docker Compose](#ambiente-para-desenvolvimento-docker-compose)
 - [Docker Compose](#docker-compose)
 - [Minikube](#minikube)
+- [Terraform](#terraform)
 - [Projeto](#projeto)
 - [Processo de execução das Tasks](#processo-de-execução-das-tasks)
   - [PR (Pull Request)](#pr-pull-request)
@@ -75,6 +86,18 @@ Instrução para uso da aplicação se encontra no tópico [Executando a Aplica�
 - [Gerar docker build](#gerar-docker-build)
 - [Pipeline](#pipeline)
     - [Organization: https://sonarcloud.io/organizations/fiap-tech-challenge-4787bf24ba181ac258cb520837a657896a92044c/members](#organization-httpssonarcloudioorganizationsfiap-tech-challenge-4787bf24ba181ac258cb520837a657896a92044cmembers)
+
+---
+
+## OWASP Reports
+
+- [Varredura CSV](./documentation/reports/Totem_Food_Service_Varredura.csv)
+- [Report antes da correção](./documentation/reports/Report_Before_Totem_Food_Service.pdf)
+- [Report após correção](./documentation/reports/Report_After_Totem_Food_Service.pdf)
+- [OWASP Session Backup](./documentation/reports/OWASP_ZAP_SESSION_Totem_Food_Service.zip)
+
+![OWASP](./documentation/reports/owasp.png)
+
 
 ---
 
@@ -154,6 +177,10 @@ Visão global da aplicação em funcionamento
 ## Minikube
 
 [Executando a aplicação via minikube](./documentation/readme-doc/exec_app_minikube.md)
+
+## Terraform
+
+[Executando a aplicação via terraform](https://github.com/jeffersoncleyson/totem-food-service-deploy-scripts/blob/main/initialize.sh)
 
 ---
 
